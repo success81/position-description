@@ -1,0 +1,12 @@
+runtime: python310
+entrypoint: gunicorn -b :$PORT main:app
+
+env_variables:
+  GOOGLE_API_KEY: 'AIzaSyAD8GT_x8KLr5zOKm4aFFg8C9XiARPhIuU'
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: auto
