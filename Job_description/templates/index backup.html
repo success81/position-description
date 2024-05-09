@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Description Generator</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            background: url('/static/windmill.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            padding-top: 10%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #f0f0f0;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 420px;
+            margin: 20px 0;
+        }
+        .form-item {
+            margin: 20px 0;
+        }
+        input[type="text"], textarea, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        textarea {
+            height: 120px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .output-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            width: 80%;
+            border-radius: 10px;
+            text-align: left;
+            display: none;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="/static/logo.png" alt="Department of Energy Logo" class="logo">
+    <div class="container">
+        <h1>Position Description Generator</h1>
+        <form method="post" action="#" onsubmit="return showOutput();">
+            <div class="form-item">
+                Position: <input type="text" name="position" required>
+            </div>
+            <div class="form-item">
+                Paygrade: <input type="text" name="paygrade" required>
+            </div>
+            <div class="form-item">
+                Additional Details:
+                <textarea name="additional_details"></textarea>
+            </div>
+            <div class="form-item">
+                <input type="submit" value="Generate">
+            </div>
+        </form>
+        <div class="output-container" id="outputContainer">
+            <h2>Position Description:</h2>
+            <p id="outputText"></p>
+        </div>
+    </div>
+    <script>
+        function showOutput() {
+            const position = document.querySelector('input[name="position"]').value;
+            const paygrade = document.querySelector('input[name="paygrade"]').value;
+            const details = document.querySelector('textarea[name="additional_details"]').value;
+            const outputText = `Position: ${position}, Paygrade: ${paygrade}, Details: ${details}`;
+
+            document.getElementById('outputText').innerText = outputText;
+            document.getElementById('outputContainer').style.display = 'block';
+            return false; // Prevent form from submitting traditionally, which refreshes the page
+        }
+    </script>
+</body>
+</html>
+
+

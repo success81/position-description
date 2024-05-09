@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Description Generator</title>
+</head>
+<body>
+    <h1>Job Description Generator</h1>
+    <form method="post">
+        Position: <input type="text" name="position" required><br>
+        Paygrade: <input type="text" name="paygrade" required><br>
+        Additional Details: <input type="text" name="additional_details"><br>
+        <input type="submit" value="Generate">
+    </form>
+    <h2>Generated Description:</h2>
+    <p>{{ output }}</p>
+</body>
+</html>
